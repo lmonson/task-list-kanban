@@ -62,14 +62,9 @@
 
 	$: filteredByTag = selectedTagsSet.size
 		? filteredByText.filter((task) => {
-				for (const tag of task.tags) {
-					if (selectedTagsSet.has(tag)) {
-						return true;
-					}
-				}
-
-				return false;
-			})
+			// Check if the task has ALL selected tags
+			return [...selectedTagsSet].every(tag => task.tags.has(tag));
+		})
 		: filteredByText;
 
 	$: tasksByColumn = groupByColumnTag(filteredByTag);

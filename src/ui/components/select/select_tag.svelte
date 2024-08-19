@@ -9,6 +9,6 @@
 	<BaseSelect
 		items={tags.map((tag) => ({ label: tag, value: tag }))}
 		bind:value
-		label="Filter by tag"
+		label="Filter by tag (AND)"
 	/>
 {/if}
